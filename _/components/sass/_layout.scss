@@ -71,8 +71,8 @@ header {
 
 	.hero {
 		width: 100%;
-		@include single-transition(all, 1s, ease-out);
 		@include at-breakpoint($medium){
+			@include single-transition(all, 1s, ease-out);
 			position: relative;
 			display: block;
 			width: 100%;
@@ -124,6 +124,99 @@ header {
 		} // li
 	} // ul.nav
 } // navigation
+
+// Speakers List ----------------------------
+
+.speakerslist {
+
+	img {
+		
+		@include border-radius;
+
+		width: 120px;
+		float: left;
+		margin: {
+			right: 10px;
+			bottom: 10px;
+		} // margin
+	} // img
+
+	@include at-breakpoint($medium) {
+		text-align: center;
+		@include background(linear-gradient(top, lighten($darkblue, 10), $darkerblue));
+		color: rgba($paleryellow, .5);
+		overflow: hidden;
+		padding-bottom: 10px;
+		#{headings()} {
+			border-bottom: none !important;
+		}
+
+		h1 {
+			color: $green;
+			font-size: 2.6rem;
+			line-height: 1em;
+			@include at-breakpoint($large) {
+				font-size: 4rem;
+				line-height: 1em;
+			} // at-breakpoint
+		} // h1
+
+		h3 {
+			font-size: 1.2em;
+			color: lighten($yellow, 10);
+			line-height: .9rem;
+		} // h3
+
+		.small {
+			padding-top: .4em !important;
+			line-height: 1em;
+			color: lighten($green, 10);
+			a {
+				color: lighten($green, 10);
+				text-decoration: none;
+				&:hover {
+					text-decoration: underline;
+					color: lighten($green, 20);
+				} // hover
+			} // a
+		} // small
+
+		img.speaker {
+			float: none;
+			width: 40%;
+			max-width: 170px;
+			margin: 0 auto;
+			@include border-radius(50%);
+		} // img.speaker
+
+		.small {
+			display: block;
+		}
+
+		p:nth-of-type(2){
+			font-weight: 200 !important;
+			text-align: left;
+			font-size: .8em;
+			line-height: 0;
+			@include single-transition(all, .3s, ease-in-out);
+			opacity: 0;
+		}
+		&:hover {
+			p:nth-of-type(2) {
+				line-height: 1.5em;
+				opacity: 1;
+			} // nth of type
+		} // hover
+
+		.artist {
+			@include span-columns(4,12);
+		}
+
+		.artist:nth-of-type(3){
+			@include span-columns(4 omega, 12);
+		}
+	} // at-breakpoint
+} // speakersList
 
 // Footer --------------------
 
